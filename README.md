@@ -1,28 +1,29 @@
 # 🖼️ Image Caption Generator
 
-This project is a **Deep Learning–based Image Captioning System** built using the **BLIP (Salesforce/blip-image-captioning-base)** model. It generates a caption for any given input image.
+A **Deep Learning–based Image Captioning System** using the **BLIP (Salesforce/blip-image-captioning-base)** model. This project generates captions for any input image using a pretrained vision–language transformer.
 
-The project includes:
+This repository includes:
 
-* Backend code (model loading + caption generation)
-* A clean **Gradio interface** for user interaction
-* Sample output images 
-* Step‑by‑step setup instructions for **Kaggle** and **local machines**
+* Backend caption generation code
+* A Gradio-based user interface
+* Sample output images
+* Complete step-by-step guide for Kaggle and local setups
 
 ---
 
 ## 🚀 Features
 
-* Generates captions using a pretrained BLIP model
-* Supports both **image upload** and **image URL input**
-* Works on **Kaggle GPU (T4)** or any system with PyTorch
-* Simple Gradio UI
-* Easy to modify and extend
+* Caption generation using BLIP
+* Accepts **image upload** and **image URL**
+* Runs smoothly on **Kaggle GPU (T4)**
+* Simple and clean Gradio UI
+* Beginner-friendly structure
 
 ---
 
 ## 📂 Project Structure
 
+```
 Image-Caption-Generator/
 │
 ├── backend_captioning_code.py       # Backend model + caption generation code
@@ -37,12 +38,13 @@ Image-Caption-Generator/
 │
 ├── .gitattributes                   # Git settings
 └── README.md                        # Project documentation
+```
 
 ---
 
 ## 🛠️ Requirements
 
-Create a **requirements.txt** file with the following:
+Your `requirements.txt` must include:
 
 ```
 transformers
@@ -57,28 +59,30 @@ requests
 
 ## 📥 Running the Project on Kaggle
 
-Follow these steps to run the project successfully.
+Follow this process to execute your captioning model.
 
-### **1️⃣ Open Kaggle Notebook**
+### **1️⃣ Create a Kaggle Notebook**
 
 * Go to **Kaggle → Notebooks**
-* Create a **New Notebook**
-* Enable **Accelerator → GPU (T4)**
+* Click **New Notebook**
+* Enable **GPU (T4)** under accelerator
+
+---
 
 ### **2️⃣ Upload Your Input Image**
 
-You can add your own image:
-
-* Left sidebar → **Add Data** → **Upload File** → Choose your image
-* After upload, Kaggle creates a folder path like:
+* Left sidebar → **Add Data** → **Upload** → select your image
+* Kaggle assigns a path like:
 
 ```
-/kaggle/input/yourimagename/your_image.jpg
+/kaggle/input/yourfoldername/your_image.jpg
 ```
 
-### **3️⃣ Add Image Path in Backend Code**
+---
 
-In your backend code, change the following line:
+### **3️⃣ Update Image Path in Code**
+
+Inside `backend_captioning_code.py`, edit:
 
 ```python
 caption = predict_caption("/kaggle/input/yourfoldername/your_image.jpg")
@@ -86,52 +90,46 @@ caption = predict_caption("/kaggle/input/yourfoldername/your_image.jpg")
 
 Replace:
 
-* `yourfoldername` → the name of the uploaded dataset folder
-* `your_image.jpg` → your actual image file name
+* `yourfoldername` → uploaded dataset folder
+* `your_image.jpg` → your actual filename
 
-This is **mandatory** for the model to read your input.
-
-### Example:
+**Example:**
 
 ```python
 caption = predict_caption("/kaggle/input/dogphoto/dog.png")
 ```
 
+---
+
 ### **4️⃣ Run the Backend Code**
 
-The model loads BLIP and generates the caption.
+The BLIP model loads and generates a caption.
 
 ---
 
-## 🖥️ Gradio Interface
+## 🖥️ Running the Gradio Interface
 
-To launch the interactive UI:
+* Scroll to the Gradio section in the notebook
+* Run the cell
+* A shareable link will appear
 
-* Scroll to the Gradio block section
-* Run the interface cell
-* A public shareable link will appear
-
-Users can:
+You can:
 
 * Upload an image
-* Paste an image URL
-* Get instant captions
+* Paste URL
+* Get captions instantly
 
 ---
 
 ## 🧪 Sample Output Images
 
-These are sample output images generated during testing.
+Below are the provided test images.
 
-### **🖼️ Output 1**
+### 🖼️ Output 1
 
 ![Output 1](output_samples/1.PNG)
 
-
-
-
-
-### **🖼️ Output 2**
+### 🖼️ Output 2
 
 ![Output 2](output_samples/2.PNG)
 
@@ -139,14 +137,14 @@ These are sample output images generated during testing.
 
 ## 🧩 How the Backend Works
 
-### **1. Load Pretrained Model**
+### **1. Load Model**
 
 ```python
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 ```
 
-### **2. Generate Caption**
+### **2. Define Caption Function**
 
 ```python
 def predict_caption(image_path):
@@ -156,7 +154,7 @@ def predict_caption(image_path):
     return processor.decode(out[0], skip_special_tokens=True)
 ```
 
-### **3. Run on Your Image**
+### **3. Generate Caption**
 
 ```python
 caption = predict_caption("/kaggle/input/yourfolder/image.jpg")
@@ -167,16 +165,17 @@ print(caption)
 
 ## 📌 Notes
 
-* Doesn’t require the dataset — only **one input image** is enough
-* You just need to update the image path in the code
+* Dataset not required — **one image is enough**
+* Only update image path
 * Works offline after model download
 
 ---
 
 ## 📞 Contact
 
-Created by RakRox For improvements, open an issue or submit a pull request.
+Created by **RakRox**.
+Open an issue or submit a PR for improvements.
 
 ---
 
-⭐ *If you like this project, consider giving it a star on GitHub!*
+⭐ **If you found this useful, please give it a star on GitHub!**
