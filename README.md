@@ -21,23 +21,24 @@ The project includes:
 
 ---
 
-📂 Project Structure
+## 📂 Project Structure
 
 Image-Caption-Generator/
 │
-├── backend_captioning_code.py     # Backend model + caption generation code
-├── gradio_interface.py            # Gradio UI for image captioning
-├── ImageCaption.ipynb             # Jupyter Notebook version of the project
-├── requirements.txt               # Python dependencies
+├── backend_captioning_code.py       # Backend model + caption generation code
+├── gradio_interface.py              # Gradio UI for captioning
+├── ImageCaption.ipynb               # Jupyter Notebook version
+├── requirements.txt                 # Python dependencies
 │
-├── output_samples/                # Folder containing sample output images
+├── output_samples/                  # Folder containing sample output images
 │   ├── 1.PNG
 │   ├── 2.PNG
 │   └── .gitkeep
 │
-├── .gitattributes                 # Git settings
-└── README.md                      # Project documentation
+├── .gitattributes                   # Git settings
+└── README.md                        # Project documentation
 
+---
 
 ## 🛠️ Requirements
 
