@@ -123,7 +123,7 @@ These are sample output images generated during testing.
 
 ### **🖼️ Output 1**
 
-![Output 1](output_samples/1.png)
+![Output 1](output_samples/1.PNG)
 
 
 
@@ -131,7 +131,7 @@ These are sample output images generated during testing.
 
 ### **🖼️ Output 2**
 
-![Output 2](output_samples/2.png)
+![Output 2](output_samples/2.PNG)
 
 ---
 
